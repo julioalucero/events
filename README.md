@@ -22,8 +22,10 @@ You’ve been asked to build a web page that will be used to publish information
 
 ## What is missing
   These are items which are missing given that are outside of the purpose of this test:
-  1. UI
-    - Hamburger icon on collapse nav
+
+  - UI: Hamburger icon on collapse nav
+  - Add rubocop
 
 ## Setup
  * Ruby 2.4.0, rails 5.1.4
+ * run `rake db:setup`

@@ -1,2 +1,28 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<h1>Events</h1>
+
+<div class='container-fluid'>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Location</th>
+        <th>Topics</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= event.title %></td>
+          <td><%= event.date %></td>
+          <td>
+            <%= "#{Time.at(event.start_at).utc.strftime("%H:%M")} -
+                #{Time.at(event.end_at).utc.strftime("%H:%M")}" %>
+          </td>
+          <td><%= event.location.city %></td>
+          <td><%= event.topics.join(', ') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</div>
