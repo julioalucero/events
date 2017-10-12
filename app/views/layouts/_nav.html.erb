@@ -1,0 +1,25 @@
+<nav class='navbar navbar-dark bg-inverse'>
+  <%= link_to 'Events JL', root_path, class: 'navbar-brand' %>
+
+  <div class='row pull-right'>
+    <div class='collapse navbar-collapse navbar-right navbar-main-collapse'>
+      <ul class='nav navbar-nav'>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to t('sessions.edit_account'), edit_user_registration_path, class: 'page-scroll' %>
+          </li>
+          <li>
+            <%= link_to t('sessions.sign_out'), destroy_user_session_path, method: 'delete', class: 'page-scroll' %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t('sessions.sign_in'), new_user_session_path, class: 'page-scroll' %>
+          </li>
+          <li>
+            <%= link_to t('sessions.sign_up'), new_user_registration_path, class: 'page-scroll' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </form>
+</nav>

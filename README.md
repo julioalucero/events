@@ -14,9 +14,16 @@ You’ve been asked to build a web page that will be used to publish information
 4. As a user, I get notified every time a new event is added that matches any of my saved filters. If I am browsing the site at the time, I would like an instant notification, otherwise, it should arrive by email.
 
 ## Production environment
-
 * https://jl-events.herokuapp.com/
 
-## Details
+## Considerations
+1. UI
+  - I added Bootstrap and setup a very basic UI in order to avoid that looks ugly.  will improve it if is necessary.
 
-* Ruby 2.4.0, rails 5.1.4
+## What is missing
+  These are items which are missing given that are outside of the purpose of this test:
+  1. UI
+    - Hamburger icon on collapse nav
+
+## Setup
+ * Ruby 2.4.0, rails 5.1.4
