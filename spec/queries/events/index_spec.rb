@@ -39,5 +39,18 @@ RSpec.describe Queries::Events::Index do
         end
       end
     end
+
+    describe 'by_date_range' do
+      let!(:event_1) { create(:event, date: Date.today) }
+      let!(:event_2) { create(:event, date: Date.today + 1.month) }
+
+      context 'given a filter by start and end date' do
+        let(:args) { { start_date: Date.today - 1.day, end_date: Date.today + 1.day } }
+
+        it 'returns only the events between these dates' do
+          expect(subject.find).to match_array([event_1])
+        end
+      end
+    end
   end
 end

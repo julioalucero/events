@@ -23,10 +23,11 @@ You’ve been asked to build a web page that will be used to publish information
 ## What is missing
   These are items which are missing given that are outside of the purpose of this test:
 
-  - UI: Hamburger icon on collapse nav
-  - Add Rubocop
-  - The user create a Event
-  - Search: Pagination of Events, do it using ajax, Sort values, clear search
+  - UI: Hamburger icon on collapse nav.
+  - Add Rubocop.
+  - Add CI.
+  - The user create a Event.
+  - Search: Pagination of Events, do it using ajax, Sort values, clear search, search by one date instead of range, use select on date search instead of string
 
 
 ## Setup

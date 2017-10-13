@@ -27,24 +27,27 @@
       </div>
       <div class='col-sm-3'>
         <div class='form-inline'>
-          <%= f.input 'Start date',
-            as: :date,
+          <%= f.input :start_date,
+            as: :string,
             required: false,
             include_blank: true,
+            selected: search[:start_date],
+            placeholder: '2017-08-30',
             input_html: { name: :start_date, value: search[:start_date] }
           %>
 
-          <%= f.input 'End date',
-            as: :date,
+          <%= f.input :end_date,
+            as: :string,
             required: false,
             include_blank: true,
+            placeholder: '2018-05-23',
             input_html: { name: :end_date, value: search[:end_date] }
           %>
         </div>
       </div>
       <div class='col-sm-3'>
         <div class='form-inline'>
-          <%= f.input 'Start time',
+          <%= f.input :start_at,
             as: :time,
             required: false,
             include_blank: true,
@@ -52,7 +55,7 @@
           %>
           <br  />
 
-          <%= f.input 'End Time',
+          <%= f.input :end_at,
             as: :time,
             required: false,
             include_blank: true,
