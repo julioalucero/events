@@ -1,0 +1,71 @@
+<div class='container'>
+  <h2>Search</h2>
+
+  <%= simple_form_for(:search, url: url, method: :get, html: { class: 'form-horizontal' }) do |f| %>
+    <div class='row'>
+      <%= f.error_notification %>
+
+      <div class='col-sm-3'>
+        <div class='form-inline'>
+          <%= f.input 'City',
+            collection: Location.pluck(:city),
+            required: false,
+            include_blank: true,
+            selected: search[:city],
+            input_html: { name: :city }
+          %>
+          <br  /><br  />
+
+          <%= f.input 'Topics',
+            collection: Enums::Topics::ALL,
+            required: false,
+            include_blank: true,
+            selected: search[:topic],
+            input_html: { name: :topic }
+          %>
+        </div>
+      </div>
+      <div class='col-sm-3'>
+        <div class='form-inline'>
+          <%= f.input 'Start date',
+            as: :date,
+            required: false,
+            include_blank: true,
+            input_html: { name: :start_date, value: search[:start_date] }
+          %>
+
+          <%= f.input 'End date',
+            as: :date,
+            required: false,
+            include_blank: true,
+            input_html: { name: :end_date, value: search[:end_date] }
+          %>
+        </div>
+      </div>
+      <div class='col-sm-3'>
+        <div class='form-inline'>
+          <%= f.input 'Start time',
+            as: :time,
+            required: false,
+            include_blank: true,
+            input_html: { name: :start_at, value: search[:start_at] }
+          %>
+          <br  />
+
+          <%= f.input 'End Time',
+            as: :time,
+            required: false,
+            include_blank: true,
+            input_html: { name: :end_at, value: search[:end_at] }
+          %>
+        </div>
+      </div>
+
+      <div class='col-sm-3'>
+        <div class='form-inline'>
+          <%= f.button :submit, 'Search', class: 'btn btn-primary btn-lg' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

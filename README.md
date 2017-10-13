@@ -7,9 +7,9 @@ You’ve been asked to build a web page that will be used to publish information
 ## Stories
 1. As a user, I can browse events.
 2. As a user, I can filter events by:
-   - city;
-   - range of start date/times;
-   - topic of interest.
+  - city;
+  - range of start date/times;
+  - topic of interest.
 3. As a user, I can save a search filter and re-use it in the future.
 4. As a user, I get notified every time a new event is added that matches any of my saved filters. If I am browsing the site at the time, I would like an instant notification, otherwise, it should arrive by email.
 
@@ -24,7 +24,10 @@ You’ve been asked to build a web page that will be used to publish information
   These are items which are missing given that are outside of the purpose of this test:
 
   - UI: Hamburger icon on collapse nav
-  - Add rubocop
+  - Add Rubocop
+  - The user create a Event
+  - Search: Pagination of Events, do it using ajax, Sort values, clear search
+
 
 ## Setup
  * Ruby 2.4.0, rails 5.1.4

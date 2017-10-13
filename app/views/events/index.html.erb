@@ -1,5 +1,7 @@
 <h1>Events</h1>
 
+<%= render partial: 'events/search_form', locals: { search: search_params, url: events_path } %>
+
 <div class='container-fluid'>
   <table class='table'>
     <thead>
@@ -13,16 +15,9 @@
     </thead>
     <tbody>
       <% @events.each do |event| %>
-        <tr>
-          <td><%= event.title %></td>
-          <td><%= event.date %></td>
-          <td>
-            <%= "#{Time.at(event.start_at).utc.strftime("%H:%M")} -
-                #{Time.at(event.end_at).utc.strftime("%H:%M")}" %>
-          </td>
-          <td><%= event.location.city %></td>
-          <td><%= event.topics.join(', ') %></td>
-        </tr>
+        <%= render 'event', event: event %>
       <% end %>
     </tbody>
+  </table>
 </div>
+

@@ -1,0 +1,10 @@
+<tr>
+  <td><%= event.title %></td>
+  <td><%= event.date %></td>
+  <td>
+    <%= "#{Time.at(event.start_at).utc.strftime("%H:%M")} -
+        #{Time.at(event.end_at).utc.strftime("%H:%M")}" %>
+  </td>
+  <td><%= event.location.city %></td>
+  <td><%= event.topics.join(', ') %></td>
+</tr>

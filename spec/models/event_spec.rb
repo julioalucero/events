@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  let(:event_attrs) { FactoryGirl.attributes_for(:event) }
+  let(:event_attrs) { attributes_for(:event) }
 
   describe 'validations' do
     it { should validate_presence_of(:title) }
