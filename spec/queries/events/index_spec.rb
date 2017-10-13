@@ -52,5 +52,25 @@ RSpec.describe Queries::Events::Index do
         end
       end
     end
+
+    describe 'by_time_range' do
+      let(:_8_00) {  8.hour.seconds.to_i }
+      let(:_10_00) { 10.hour.seconds.to_i }
+      let(:_14_00) { 14.hour.seconds.to_i }
+      let(:_16_00) { 16.hour.seconds.to_i }
+      let(:_12_00) { 12.hour.seconds.to_i }
+
+      let!(:event_1) { create(:event, start_at: _10_00, end_at: _14_00) }
+      let!(:event_2) { create(:event, start_at: _14_00, end_at: _16_00) }
+      let!(:event_3) { create(:event, start_at: _8_00, end_at: _12_00) }
+
+      context 'given a filter by start and end time' do
+        let(:args) { { start_at: '9:10', end_at: '15:35' } }
+
+        it 'returns only the events between these hours' do
+          expect(subject.find).to match_array([event_1])
+        end
+      end
+    end
   end
 end

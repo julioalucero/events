@@ -48,17 +48,19 @@
       <div class='col-sm-3'>
         <div class='form-inline'>
           <%= f.input :start_at,
-            as: :time,
+            as: :string,
             required: false,
             include_blank: true,
+            placeholder: '10:00',
             input_html: { name: :start_at, value: search[:start_at] }
           %>
           <br  />
 
           <%= f.input :end_at,
-            as: :time,
+            as: :string,
             required: false,
             include_blank: true,
+            placeholder: '14:00',
             input_html: { name: :end_at, value: search[:end_at] }
           %>
         </div>

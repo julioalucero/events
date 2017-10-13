@@ -27,7 +27,13 @@ You’ve been asked to build a web page that will be used to publish information
   - Add Rubocop.
   - Add CI.
   - The user create a Event.
-  - Search: Pagination of Events, do it using ajax, Sort values, clear search, search by one date instead of range, use select on date search instead of string
+  - Search:
+      - Pagination of Events
+      - Search using ajax
+      - Sort values
+      - clear search
+      - search by one date instead of range or unless add some code on client to avoid search by one, use select on date search instead of string
+      - idem upper but for time range.
 
 
 ## Setup

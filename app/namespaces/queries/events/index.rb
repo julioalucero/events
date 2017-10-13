@@ -7,13 +7,17 @@ module Queries
         @topic = args[:topic]
         @start_date = args[:start_date]
         @end_date = args[:end_date]
+        @start_at = parse_time(args[:start_at])
+        @end_at = parse_time(args[:end_at])
       end
 
       attr_reader :klass,
                   :city,
                   :topic,
                   :start_date,
-                  :end_date
+                  :end_date,
+                  :start_at,
+                  :end_at
 
       def find
         build_query
@@ -27,6 +31,7 @@ module Queries
         relation = by_city(relation) if city.present?
         relation = by_topic(relation) if topic.present?
         relation = by_date_range(relation) if start_date.present? && end_date.present?
+        relation = by_time_range(relation) if start_at.present? && end_at.present?
 
         relation
       end
@@ -41,6 +46,16 @@ module Queries
 
       def by_date_range(relation)
         relation.where('date >= ? AND date <= ?', start_date, end_date)
+      end
+
+      def by_time_range(relation)
+        relation.where('start_at >= ? AND end_at <= ?', start_at, end_at)
+      end
+
+      def parse_time(time)
+        return unless time.present?
+
+        Time.parse(time).seconds_since_midnight
       end
     end
   end
