@@ -34,6 +34,8 @@ You’ve been asked to build a web page that will be used to publish information
       - clear search
       - search by one date instead of range or unless add some code on client to avoid search by one, use select on date search instead of string
       - idem upper but for time range.
+  - Saved Search:
+    - Edit, Destroy actions
 
 
 ## Setup

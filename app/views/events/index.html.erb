@@ -1,23 +1,31 @@
-<h1>Events</h1>
+<div class='row'>
+  <%= render partial: 'events/search_form',
+             locals: { search: search_params, url: events_path } %>
 
-<%= render partial: 'events/search_form', locals: { search: search_params, url: events_path } %>
+  <div class='col-sm-8'>
+    <h1>Events</h1>
 
-<div class='container-fluid'>
-  <table class='table'>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Location</th>
-        <th>Topics</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @events.each do |event| %>
-        <%= render 'event', event: event %>
-      <% end %>
-    </tbody>
-  </table>
+    <div class='container-fluid'>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Topics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @events.each do |event| %>
+          <%= render 'event', event: event %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <% if user_signed_in? %>
+    <%= render 'searches/searches', searches: current_user.searches %>
+  <% end %>
 </div>
-

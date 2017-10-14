@@ -36,3 +36,6 @@ en:
       models:
         event:
           start_at_before_end_at: 'The end time must be greater than the start time'
+  search:
+    created: 'You search has been saved'
+    failed: 'There was a problem saving your search'

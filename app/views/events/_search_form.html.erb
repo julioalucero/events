@@ -69,6 +69,14 @@
       <div class='col-sm-3'>
         <div class='form-inline'>
           <%= f.button :submit, 'Search', class: 'btn btn-primary btn-lg' %>
+
+          <% unless search_params.empty? %>
+            <%= link_to 'Save Search',
+                        searches_path(metadata: search_compact_json_params),
+                        method: :post,
+                        data: { confirm: "Are you sure?" },
+                        class: 'btn btn-info btn-lg' %>
+          <% end %>
         </div>
       </div>
     </div>

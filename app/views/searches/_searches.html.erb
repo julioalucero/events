@@ -1,0 +1,11 @@
+<div class='col-sm-4 bg-info'>
+  <h2>Your searches</h2>
+
+  <% if searches.any? %>
+    <ul class='list-group'>
+      <% searches.each do |search| %>
+        <%= render 'searches/search', search: search %>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
