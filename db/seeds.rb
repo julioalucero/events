@@ -5,24 +5,9 @@ def create_locations
   puts '  BEGIN: Create Locations'
   return unless Location.count.zero?
 
-  %w[ Santa\ Fe
-      Arroyo\ Aguiar
-      Arroyo\ Leyes
-      Cabal
-      Campo\ Andino
-      Candioti
-      Emilia
-      Laguna\ Paiva
-      Llambi\ Campbell
-      Monte\ Vera
-      Nelson
-      Recreo
-      San\ José del Rincón
-      Santo\ Tomé
-      Sauce\ Viejo
-    ].map do |city|
-      Location.create!(city: city)
-    end
+  Enums::Cities::ALL.map do |city|
+    Location.create!(city: city)
+  end
 
   puts "#{Location.count} locations has been created"
   puts '  END: Create Locations'

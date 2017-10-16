@@ -26,6 +26,8 @@
   </div>
 
   <% if user_signed_in? %>
+    <%= render 'searches/search_channel' %>
+
     <%= render 'searches/searches', searches: current_user.searches %>
   <% end %>
 </div>

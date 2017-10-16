@@ -1,0 +1,54 @@
+require 'spec_helper'
+
+describe TimeScheduler do
+  let(:nine)   { Time.now.change(:hour => 9)  }
+  let(:ten)    { Time.now.change(:hour => 10) }
+  let(:eleven) { Time.now.change(:hour => 11) }
+  let(:twelve) { Time.now.change(:hour => 12) }
+
+  context "with no intervals between nine and eleven" do
+    it "gets only one time" do
+      schedule = TimeScheduler.get(:start_at => nine, :end_at => eleven)
+      expect(schedule.length).to eq(1)
+    end
+
+    it "gets a time within nine and eleven" do
+      10.times do
+        schedule = TimeScheduler.get(:start_at => nine, :end_at => eleven)
+        expect(schedule.first).to be >= nine
+        expect(schedule.first).to be <= eleven
+      end
+    end
+  end
+
+  context "with three intervals between nine and twelve" do
+    it "gets three times" do
+      schedule = TimeScheduler.get(:start_at => nine, :end_at => twelve, :intervals => 3)
+      expect(schedule.length).to eq(3)
+    end
+
+    it "gets a time within nine and ten" do
+      10.times do
+        schedule = TimeScheduler.get(:start_at => nine, :end_at => twelve, :intervals => 3)
+        expect(schedule.first).to be >= nine
+        expect(schedule.first).to be <= eleven
+      end
+    end
+
+    it "gets a time within ten and eleven" do
+      10.times do
+        schedule = TimeScheduler.get(:start_at => nine, :end_at => twelve, :intervals => 3)
+        expect(schedule[1]).to be >= ten
+        expect(schedule[1]).to be <= eleven
+      end
+    end
+
+    it "gets a time within eleven and twelve" do
+      10.times do
+        schedule = TimeScheduler.get(:start_at => nine, :end_at => twelve, :intervals => 3)
+        expect(schedule.last).to be >= eleven
+        expect(schedule.last).to be <= twelve
+      end
+    end
+  end
+end

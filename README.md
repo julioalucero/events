@@ -36,6 +36,14 @@ You’ve been asked to build a web page that will be used to publish information
       - idem upper but for time range.
   - Saved Search:
     - Edit, Destroy actions
+  - Jobs:
+    - Sidekiq authentication
+  - Email:
+    - Configure to send the email in production
+  - Match Search:
+    - In the same job I check given an event all the search. To make it scalable is necessary to do
+      on query by saved search.
+    - Currently I use only `after_create_commit`, but better would to add also `after_update_commit`
 
 
 ## Setup

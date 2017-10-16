@@ -7,6 +7,10 @@ class EventsController < ApplicationController
     @events = Queries::Events::Index.new(search_params).find
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   private
 
   def search_params

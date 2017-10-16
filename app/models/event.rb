@@ -10,6 +10,8 @@ class Event < ApplicationRecord
   validates :end_at, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validate :start_at_before_end_at
 
+  after_create_commit { EventBroadcastWorker.perform_async self.id }
+
   private
 
   def start_at_before_end_at

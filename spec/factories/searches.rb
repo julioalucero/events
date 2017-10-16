@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :search do
-    metadata { { city: 'Santa Fe' } }
+    metadata { { city: Enums::Cities::ALL.sample } }
 
     user
   end

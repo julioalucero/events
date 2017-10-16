@@ -29,4 +29,16 @@ RSpec.describe Event, type: :model do
       end
     end
   end
+
+  describe '#save' do
+    let(:event) { build(:event) }
+
+    describe 'EventBroadcastWorker' do
+      it 'is called' do
+        expect(EventBroadcastWorker).to receive(:perform_async)
+
+        event.save
+      end
+    end
+  end
 end

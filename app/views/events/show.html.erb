@@ -1,0 +1,22 @@
+<div class='row'>
+  <div class='col-sm-8'>
+    <h3><%= @event.title %></h3>
+    <p>
+      <b>Date: </b>
+      <%= @event.date %>
+    </p>
+    <p>
+      <b>Time</b>
+      <%= "#{Time.at(@event.start_at).utc.strftime("%H:%M")} -
+      #{Time.at(@event.end_at).utc.strftime("%H:%M")}" %>
+    </p>
+    <p>
+      <b>Location City</b>
+      <%= @event.location.city %>
+    </p>
+    <p>
+      <b>Topics</b>
+      <%= @event.topics.join(', ') %>
+    </p>
+  </div>
+</div>
