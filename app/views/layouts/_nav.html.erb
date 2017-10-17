@@ -6,6 +6,9 @@
       <ul class='nav navbar-nav'>
         <% if user_signed_in? %>
           <li>
+            <%= link_to 'New event', new_event_path, class: 'page-scroll' %>
+          </li>
+          <li>
             <%= link_to t('sessions.edit_account'), edit_user_registration_path, class: 'page-scroll' %>
           </li>
           <li>

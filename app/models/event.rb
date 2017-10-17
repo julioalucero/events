@@ -12,6 +12,8 @@ class Event < ApplicationRecord
 
   after_create_commit { EventBroadcastWorker.perform_async self.id }
 
+  accepts_nested_attributes_for :location
+
   private
 
   def start_at_before_end_at

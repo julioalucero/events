@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'events#index'
   devise_for :users
 
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index, :show, :new, :create]
   resources :searches, only: [:create]
 
   mount ActionCable.server => '/cable'

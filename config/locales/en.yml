@@ -39,6 +39,9 @@ en:
   search:
     created: 'You search has been saved'
     failed: 'There was a problem saving your search'
+  event:
+    created: 'You event has been created'
+    failed: 'There was a problem saving your event'
   notifications_mailer:
     match_event:
       subject: 'A new event match with you search'
