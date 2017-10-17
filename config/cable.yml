@@ -9,4 +9,4 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV.fetch("REDIS_URL") %>
+  url: <%= ENV.fetch("REDIS_URL") { 'localhost:6379' } %>

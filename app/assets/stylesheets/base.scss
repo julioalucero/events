@@ -38,3 +38,24 @@ body {
 code {
   font-size: 80%;
 }
+
+.form-horizontal .form-group {
+  margin-top: 20px;
+}
+
+.form-horizontal .control-label {
+  margin-right: 10px;
+}
+
+input[type="submit"] {
+  margin-top: 16px;
+}
+
+a#save-search {
+  margin-top: 13px;
+  margin-left: 7px;
+}
+
+.search-channel {
+  margin-top: 80px;
+}

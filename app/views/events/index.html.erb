@@ -26,8 +26,10 @@
   </div>
 
   <% if user_signed_in? %>
-    <%= render 'searches/search_channel' %>
+    <div id='secondary-content'>
+      <%= render 'searches/search_channel' %>
 
-    <%= render 'searches/searches', searches: current_user.searches %>
+      <%= render 'searches/searches', searches: current_user.searches %>
+    </div>
   <% end %>
 </div>
