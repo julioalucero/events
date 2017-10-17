@@ -1,5 +1,7 @@
 module Matches
   class SearchEvent
+    require 'cable_helpers'
+
     def initialize(event)
       @event = event
       @matches = matches
